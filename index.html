@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirsten Pro Coaching — Move Better. Live Stronger.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --orange:#F97316;
+  --orange-dark:#EA6A0A;
+  --orange-light:#FFF0E6;
+  --dark:#1A1F2E;
+  --dark2:#252B3B;
+  --mid:#4B5563;
+  --muted:#9CA3AF;
+  --bg:#F8F5F0;
+  --white:#FFFFFF;
+  --border:#E8E4DE;
+  --radius:12px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(248,245,240,0.95);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 48px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-circle{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--dark);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;flex-shrink:0;
+}
+.nav-logo-circle img{width:100%;height:100%;object-fit:cover;}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1;}
+.nav-logo-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;letter-spacing:0.06em;color:var(--dark);text-transform:uppercase;}
+.nav-logo-sub{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.15em;color:var(--orange);text-transform:uppercase;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:14px;font-weight:500;color:var(--mid);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--dark);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:64px;display:grid;grid-template-columns:1fr 1fr;align-items:center;}
+.hero-left{padding:80px 56px 80px 80px;}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--orange-light);border-radius:20px;padding:6px 14px;
+  font-size:12px;font-weight:600;color:var(--orange);letter-spacing:0.03em;margin-bottom:32px;
+}
+.hero-pill-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--orange);
+  position:relative;flex-shrink:0;animation:recPulse 1.8s ease-in-out infinite;
+}
+.hero-pill-dot::after{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:2px solid var(--orange);opacity:0;animation:recRing 1.8s ease-in-out infinite;
+}
+@keyframes recPulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.15);opacity:0.7;}}
+@keyframes recRing{0%{transform:scale(0.5);opacity:0.8;}100%{transform:scale(2.2);opacity:0;}}
+.hero-left h1{font-family:'Barlow',sans-serif;font-weight:800;font-size:clamp(48px,5.5vw,76px);line-height:1.02;letter-spacing:-0.02em;margin-bottom:24px;}
+.hero-left h1 .line2{color:var(--orange);font-style:italic;}
+.hero-left p{font-size:17px;color:var(--mid);line-height:1.75;max-width:400px;margin-bottom:40px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-solid{background:var(--orange);color:#fff;padding:14px 28px;border-radius:7px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s;}
+.btn-solid:hover{background:var(--orange-dark);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--dark);padding:14px 28px;border-radius:7px;border:1.5px solid var(--dark);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-outline:hover{background:var(--dark);color:#fff;}
+.hero-right{height:100vh;position:relative;overflow:hidden;border-radius:0 0 0 48px;}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,transparent 40%,rgba(26,31,46,0.25));}
+
+/* SERVICES */
+#services{background:var(--bg);padding:100px 80px;text-align:center;}
+#services h2{font-family:'Barlow',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);letter-spacing:-0.02em;margin-bottom:14px;}
+#services .section-sub{font-size:17px;color:var(--mid);max-width:580px;margin:0 auto 56px;line-height:1.65;}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1100px;margin:0 auto;}
+.service-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;text-align:left;transition:transform .25s,box-shadow .25s;}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.08);}
+.service-icon{width:42px;height:42px;border-radius:10px;background:var(--orange-light);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.service-icon svg{width:20px;height:20px;color:var(--orange);}
+.service-card h3{font-size:15px;font-weight:700;margin-bottom:10px;color:var(--dark);}
+.service-card p{font-size:13px;color:var(--mid);line-height:1.65;}
+
+/* ABOUT */
+#about{background:var(--white);padding:100px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img{border-radius:var(--radius);overflow:hidden;height:500px;}
+.about-img img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.about-text .section-tag{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+.about-text h2{font-family:'Barlow',sans-serif;font-weight:800;font-size:clamp(32px,3.5vw,44px);letter-spacing:-0.02em;margin-bottom:16px;}
+.about-quote{font-size:16px;font-style:italic;font-weight:600;color:var(--orange);margin-bottom:20px;}
+.about-text p{font-size:15px;color:var(--mid);line-height:1.75;margin-bottom:14px;}
+.about-stats{display:flex;gap:0;margin-top:32px;border-top:1px solid var(--border);padding-top:28px;}
+.stat{flex:1;padding-right:24px;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;padding-left:24px;padding-right:0;}
+.stat:not(:first-child){padding-left:24px;}
+.stat-num{font-family:'Barlow',sans-serif;font-weight:800;font-size:28px;color:var(--dark);}
+.stat-label{font-size:12px;color:var(--muted);margin-top:2px;}
+
+/* PHOTO STRIP */
+#photos{background:var(--bg);padding:60px 80px;display:flex;gap:20px;justify-content:center;}
+.photo-strip-img{border-radius:var(--radius);overflow:hidden;flex:1;max-width:380px;height:260px;}
+.photo-strip-img img{width:100%;height:100%;object-fit:cover;}
+
+/* ── PRICING ── */
+#pricing{background:var(--bg);padding:100px 80px;text-align:center;}
+#pricing h2{font-family:'Barlow',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);letter-spacing:-0.02em;margin-bottom:12px;}
+#pricing .section-sub{font-size:16px;color:var(--mid);margin-bottom:32px;}
+
+/* Currency toggle */
+.currency-toggle{
+  display:inline-flex;align-items:center;gap:0;
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:8px;overflow:hidden;margin-bottom:48px;
+}
+.curr-btn{
+  padding:10px 20px;font-family:'Inter',sans-serif;
+  font-size:13px;font-weight:600;border:none;cursor:pointer;
+  background:transparent;color:var(--muted);transition:all .2s;
+}
+.curr-btn.active{background:var(--orange);color:#fff;}
+.curr-btn:not(.active):hover{background:var(--orange-light);color:var(--orange);}
+
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:760px;margin:0 auto;}
+.price-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:36px 32px;text-align:left;position:relative;}
+.price-card.featured{background:var(--dark);border-color:var(--dark);}
+.best-badge{position:absolute;top:-14px;right:24px;background:var(--orange);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;}
+.price-card h3{font-size:18px;font-weight:700;margin-bottom:6px;}
+.price-card.featured h3,.price-card.featured p,.price-card.featured li{color:#fff;}
+.price-card .price-desc{font-size:13px;color:var(--muted);margin-bottom:24px;}
+.price-card.featured .price-desc{color:rgba(255,255,255,0.55);}
+
+/* Price display */
+.price-display{margin-bottom:4px;}
+.price-main{font-family:'Barlow',sans-serif;font-weight:800;font-size:48px;letter-spacing:-0.02em;line-height:1;}
+.price-card.featured .price-main{color:#fff;}
+.price-sym{font-size:22px;vertical-align:super;}
+.price-unit{font-size:14px;font-weight:400;color:var(--muted);}
+.price-card.featured .price-unit{color:rgba(255,255,255,0.5);}
+.price-secondary{font-size:12px;color:var(--muted);margin-bottom:24px;min-height:18px;}
+.price-card.featured .price-secondary{color:rgba(255,255,255,0.4);}
+
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px;}
+.price-features li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--mid);}
+.price-card.featured .price-features li{color:rgba(255,255,255,0.8);}
+.check-icon{width:18px;height:18px;border-radius:50%;background:var(--orange-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.price-card.featured .check-icon{background:rgba(249,115,22,0.2);}
+.check-icon svg{width:10px;height:10px;color:var(--orange);}
+.btn-price{width:100%;padding:14px;border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border:1.5px solid var(--dark);background:transparent;color:var(--dark);transition:all .2s;}
+.btn-price:hover{background:var(--dark);color:#fff;}
+.btn-price-solid{width:100%;padding:14px;border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border:none;background:var(--orange);color:#fff;transition:background .2s,transform .15s;}
+.btn-price-solid:hover{background:var(--orange-dark);transform:translateY(-1px);}
+
+/* CTA */
+#cta{background:var(--orange);padding:80px;text-align:center;}
+#cta h2{font-family:'Barlow',sans-serif;font-weight:800;font-size:clamp(32px,5vw,56px);letter-spacing:-0.02em;color:#fff;margin-bottom:16px;}
+#cta p{font-size:18px;color:rgba(255,255,255,0.85);margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-dark{background:var(--dark);color:#fff;padding:16px 28px;border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s;}
+.btn-dark:hover{background:#0f1320;}
+.btn-white{background:transparent;color:#fff;padding:16px 28px;border-radius:8px;border:2px solid rgba(255,255,255,0.6);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-white:hover{background:rgba(255,255,255,0.1);border-color:#fff;}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 80px;text-align:center;}
+.footer-brand{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:14px;}
+.footer-tagline{font-size:14px;color:var(--muted);margin-bottom:20px;}
+.footer-links{display:flex;gap:24px;justify-content:center;margin-bottom:24px;flex-wrap:wrap;}
+.footer-links a{font-size:14px;color:var(--mid);text-decoration:none;transition:color .2s;display:inline-flex;align-items:center;gap:5px;}
+.footer-links a:hover{color:var(--orange);}
+.footer-copy{font-size:12px;color:var(--muted);}
+
+/* CHATBOT */
+.chat-fab{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;border-radius:50%;background:var(--orange);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(249,115,22,0.45);transition:transform .2s,background .2s;}
+.chat-fab:hover{transform:scale(1.1);background:var(--orange-dark);}
+.chat-fab svg{width:24px;height:24px;}
+.chat-bubble{position:fixed;bottom:96px;right:28px;z-index:998;width:348px;background:var(--white);border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.15);display:none;flex-direction:column;overflow:hidden;}
+.chat-bubble.open{display:flex;animation:chatIn .3s ease;}
+@keyframes chatIn{from{opacity:0;transform:translateY(16px) scale(.97);}to{opacity:1;transform:none;}}
+.chat-head{background:var(--dark);padding:16px 18px;display:flex;align-items:center;gap:12px;}
+.chat-av{width:38px;height:38px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--orange);}
+.chat-av img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.chat-head-text .name{font-size:14px;font-weight:600;color:#fff;}
+.chat-head-text .status{font-size:11px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:5px;margin-top:2px;}
+.online-dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;}
+.chat-msgs{flex:1;padding:16px;max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;}
+.msg{max-width:86%;}
+.msg.bot{align-self:flex-start;}
+.msg.user{align-self:flex-end;}
+.msg-b{padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.55;}
+.msg.bot .msg-b{background:#F3F4F6;color:var(--dark);border-bottom-left-radius:3px;}
+.msg.user .msg-b{background:var(--orange);color:#fff;border-bottom-right-radius:3px;}
+.chat-qs{padding:0 14px 10px;display:flex;flex-wrap:wrap;gap:6px;}
+.chat-q{background:var(--orange-light);border:none;border-radius:20px;padding:6px 12px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:var(--orange);cursor:pointer;transition:all .2s;text-align:left;}
+.chat-q:hover{background:var(--orange);color:#fff;}
+.chat-foot{padding:10px 14px;border-top:1px solid var(--border);display:flex;gap:8px;}
+.chat-in{flex:1;padding:9px 14px;border:1px solid var(--border);border-radius:20px;font-family:'Inter',sans-serif;font-size:13px;background:var(--bg);outline:none;transition:border-color .2s;}
+.chat-in:focus{border-color:var(--orange);}
+.chat-send-btn{width:34px;height:34px;border-radius:50%;background:var(--orange);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;}
+.chat-send-btn:hover{background:var(--orange-dark);}
+
+/* Chat fallback question form */
+.chat-ask-form{padding:12px 14px;border-top:1px solid var(--border);display:none;flex-direction:column;gap:8px;}
+.chat-ask-form.visible{display:flex;}
+.chat-ask-form p{font-size:12px;color:var(--mid);font-weight:500;}
+.chat-ask-input{padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:12px;background:var(--bg);outline:none;resize:none;height:64px;transition:border-color .2s;}
+.chat-ask-input:focus{border-color:var(--orange);}
+.chat-ask-email{padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:12px;background:var(--bg);outline:none;transition:border-color .2s;}
+.chat-ask-email:focus{border-color:var(--orange);}
+.chat-ask-submit{background:var(--orange);color:#fff;border:none;border-radius:8px;padding:9px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:background .2s;}
+.chat-ask-submit:hover{background:var(--orange-dark);}
+.chat-ask-success{font-size:12px;color:#065F46;background:#ECFDF5;border:1px solid #6EE7B7;border-radius:8px;padding:10px;display:none;text-align:center;}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;z-index:500;background:rgba(26,31,46,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;}
+.modal-bg.open{display:flex;}
+.modal{background:var(--white);border-radius:16px;padding:40px;width:100%;max-width:520px;position:relative;animation:modalIn .3s ease;max-height:90vh;overflow-y:auto;}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;font-size:20px;color:var(--muted);line-height:1;}
+.modal h2{font-family:'Barlow',sans-serif;font-weight:800;font-size:24px;margin-bottom:6px;}
+.modal .modal-sub{font-size:14px;color:var(--muted);margin-bottom:28px;}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.form-group label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.form-group input,.form-group select,.form-group textarea{padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;background:var(--bg);color:var(--dark);outline:none;transition:border-color .2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange);}
+.form-group textarea{height:100px;resize:vertical;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-note{font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:20px;}
+.form-success{display:none;background:#ECFDF5;border:1px solid #6EE7B7;border-radius:8px;padding:14px;font-size:14px;color:#065F46;margin-top:12px;}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;}
+  .hero-right{height:55vw;border-radius:0;}
+  .hero-left{padding:56px 24px 48px;}
+  #services,#about,#pricing,#cta,footer,#photos{padding:60px 24px;}
+  #about{grid-template-columns:1fr;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .pricing-grid{grid-template-columns:1fr;}
+  #photos{flex-direction:column;}
+  .photo-strip-img{max-width:100%;height:220px;}
+  .chat-bubble{width:calc(100vw - 32px);right:16px;}
+  .chat-fab{right:16px;bottom:20px;}
+  .about-img{height:360px;}
+  .form-row{grid-template-columns:1fr;}
+  #cta{padding:60px 24px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo-circle">
+      <img src="images/Kirsten_Pro_Coaching_logo_design.png" alt="KG logo">
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Kirsten</span>
+      <span class="nav-logo-sub">Pro Coaching</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <button class="btn-solid" onclick="openModal()">Book Free Call</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-pill"><div class="hero-pill-dot"></div>Online Functional Strength Training</div>
+    <h1>Move better.<br><span class="line2">Live stronger.</span></h1>
+    <p>Practical, experienced online personal training for runners, cyclists, athletes, and everyday movers. Because motion is lotion.</p>
+    <div class="hero-btns">
+      <button class="btn-solid" onclick="openModal()">Book Free 20-Min Call →</button>
+      <a href="#pricing" class="btn-outline">View Pricing</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- 📸 HERO: images/Kristi_Nicole_Smith-133.jpg -->
+    <img src="images/Kristi_Nicole_Smith-133.jpg" alt="Kirsten coaching">
+  </div>
+</section>
+
+<section id="services">
+  <h2>Who I work with</h2>
+  <p class="section-sub">Tailored functional strength and mobility programming designed for your specific goals, lifestyle, and physical demands.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <h3>Runners</h3>
+      <p>Strength training for 5K to ultra runners. Core, glute activation, and injury prevention to keep you on the road.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M14.5 5h-5l-3 9h11l-3-9z"/><path d="M5 19h14"/></svg></div>
+      <h3>Cyclists</h3>
+      <p>Targeted cycling strength to improve power output, endurance, and fix muscular imbalances from time in the saddle.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+      <h3>Desk Workers</h3>
+      <p>Combat desk-job back pain, poor posture, and tight hips with dedicated mobility and foundational strength.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <h3>Rehab &amp; Prevention</h3>
+      <p>Chronic, acute, preventative, and rehabilitative care to help you move pain-free in everyday life.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-img">
+    <!-- 📸 ABOUT: images/Kristi_Nicole_Smith-175.jpg -->
+    <img src="images/Kristi_Nicole_Smith-175.jpg" alt="Kirsten Groenewald — Personal Trainer">
+  </div>
+  <div class="about-text">
+    <p class="section-tag">About Kirsten</p>
+    <h2>About Kirsten</h2>
+    <p class="about-quote">"Motion is lotion."</p>
+    <p>With over 10 years of coaching experience and a background in biokinetics, I bridge the gap between high-performance training and sustainable, pain-free movement.</p>
+    <p>My approach is grounded in practicality and science. Whether you're an ultra-runner aiming for a PR, a cyclist looking for more power, or a desk worker wanting to play with your kids without back pain, the fundamental truth remains the same: how you move dictates how you live.</p>
+    <p>I don't believe in quick fixes. I believe in consistent, intelligent functional strength training that respects your body's mechanics and elevates your everyday life.</p>
+    <div class="about-stats">
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Customised Plans</div></div>
+      <div class="stat"><div class="stat-num">All</div><div class="stat-label">Levels Welcome</div></div>
+    </div>
+  </div>
+</section>
+
+<div id="photos">
+  <!-- 📸 PHOTO STRIP: update filenames below to swap photos -->
+  <div class="photo-strip-img"><img src="images/Kristi_Nicole_Smith-35.jpg" alt="TRX training"></div>
+  <div class="photo-strip-img"><img src="images/Kristi_Nicole_Smith-24.jpg" alt="Rowing machine" style="filter:grayscale(100%);"></div>
+  <div class="photo-strip-img"><img src="images/Kristi_Nicole_Smith-147.jpg" alt="Kettlebell training"></div>
+</div>
+
+<!-- PRICING -->
+<section id="pricing">
+  <h2>Simple, transparent pricing</h2>
+  <p class="section-sub">Invest in your movement, performance, and long-term health. No hidden fees.</p>
+
+  <!-- CURRENCY TOGGLE -->
+  <div>
+    <div class="currency-toggle">
+      <button class="curr-btn active" id="btnUSD" onclick="setCurrency('USD')">$ USD</button>
+      <button class="curr-btn" id="btnGBP" onclick="setCurrency('GBP')">£ GBP</button>
+      <button class="curr-btn" id="btnZAR" onclick="setCurrency('ZAR')">R ZAR</button>
+    </div>
+    <p id="zar-note" style="font-size:12px;color:var(--muted);margin-top:-32px;margin-bottom:40px;display:none;">
+      South African rates — locally adjusted pricing for SA clients.
+    </p>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- SINGLE SESSION -->
+    <div class="price-card">
+      <h3>Single Session</h3>
+      <p class="price-desc">Perfect for form checks, acute issues, or ad-hoc guidance.</p>
+      <div class="price-display">
+        <div class="price-main">
+          <span class="price-sym" id="sym1"></span><span id="amt1"></span> <span class="price-unit" id="unit1"></span>
+        </div>
+      </div>
+      <p class="price-secondary" id="alt1"></p>
+      <ul class="price-features">
+        <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>45 or 60-minute online session</li>
+        <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>Movement assessment</li>
+        <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>Session summary &amp; notes</li>
+        <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>Pay via Wise, EFT, or bank transfer</li>
+      </ul>
+      <button class="btn-price" onclick="openModal()">Book a Session</button>
+    </div>
+
+    <!-- 10 SESSION PACKAGE -->
+    <div class="price-card featured">
+      <div class="best-badge">Best Value</div>
+      <h3>10-Session Package</h3>
+      <p class="price-desc">Comprehensive programme for lasting structural changes.</p>
+      <div class="price-display">
+        <div class="price-main">
+          <span class="price-sym" id="sym2"></span><span id="amt2"></span> <span class="price-unit" id="unit2"></span>
+        </div>
+      </div>
+      <p class="price-secondary" id="alt2"></p>
+      <ul class="price-features">
+        <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>10 × 60-minute sessions</li>
+        <li><div class="check-icon"><svg viewget="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>Full programme design</li>
+        <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>WhatsApp support between sessions</li>
+        <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>Progress tracking &amp; adjustments</li>
+        <li><div class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>Pay via Wise, EFT, or bank transfer</li>
+      </ul>
+      <button class="btn-price-solid" onclick="openModal()">Secure Your Spot</button>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <h2>Ready to move better?</h2>
+  <p>Let's discuss your goals, injury history, and see if we're a good fit. Book your complimentary 20-minute consultation today.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/27000000000" class="btn-dark" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.529 5.845L.057 23.547a.5.5 0 0 0 .604.634l5.878-1.452A11.934 11.934 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.507-5.234-1.392l-.374-.213-3.886.961.985-3.793-.23-.386A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsApp Me
+    </a>
+    <button class="btn-white" onclick="openModal()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Send an Enquiry
+    </button>
+    <a href="https://www.instagram.com/khengineeringfitness?igsh=bTRrM2Njdzd5bjJk" target="_blank" rel="noopener" class="btn-white">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      Follow on Instagram
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <div class="nav-logo-circle" style="width:40px;height:40px;">
+      <img src="images/Kirsten_Pro_Coaching_logo_design.png" alt="KG">
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name" style="font-size:15px;">Kirsten</span>
+      <span class="nav-logo-sub" style="font-size:9px;">Pro Coaching</span>
+    </div>
+  </div>
+  <p class="footer-tagline">Online functional strength training for life and sport.</p>
+  <div class="footer-links">
+    <a href="https://wa.me/27000000000" target="_blank">WhatsApp</a>
+    <a href="mailto:kpcs@kirstenhpt.atlassian.net">Email</a>
+    <a href="https://www.instagram.com/khengineeringfitness?igsh=bTRrM2Njdzd5bjJk" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      @khengineeringfitness
+    </a>
+  </div>
+  <p class="footer-copy">© 2026 Kirsten Pro Coaching. All rights reserved. · Registered personal trainer, South Africa</p>
+</footer>
+
+<!-- CHATBOT FAB -->
+<button class="chat-fab" onclick="toggleChat()" title="Have a question?">
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<!-- CHAT WINDOW -->
+<div class="chat-bubble" id="chatBubble">
+  <div class="chat-head">
+    <div class="chat-av">
+      <!-- 📸 CHAT AVATAR: images/Kristi_Nicole_Smith-175.jpg -->
+      <img src="images/Kristi_Nicole_Smith-175.jpg" alt="Kirsten">
+    </div>
+    <div class="chat-head-text">
+      <div class="name">Kirsten Pro Coaching</div>
+      <div class="status"><div class="online-dot"></div>Usually replies same day</div>
+    </div>
+  </div>
+
+  <div class="chat-msgs" id="chatMsgs">
+    <div class="msg bot"><div class="msg-b">Hey! 👋 Welcome to Kirsten Pro Coaching. Have a quick question? Tap one below or type your own!</div></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CHATBOT QUICK-TAP BUTTONS
+       Edit text inside ask('...') = question sent to bot
+       Edit label between > and </button> = button text shown
+       Copy any line to add a new button. ~10 max looks good.
+       ═══════════════════════════════════════════════════════ -->
+  <div class="chat-qs" id="chatQs">
+    <button class="chat-q" onclick="ask('How long are sessions?')">Session length?</button>
+    <button class="chat-q" onclick="ask('What equipment do I need?')">Equipment needed?</button>
+    <button class="chat-q" onclick="ask('What time zones do you work in?')">Time zones?</button>
+    <button class="chat-q" onclick="ask('How much does it cost?')">Pricing?</button>
+    <button class="chat-q" onclick="ask('How do I pay?')">Payment options?</button>
+    <button class="chat-q" onclick="ask('Is this legit?')">Are you legit?</button>
+    <button class="chat-q" onclick="ask('Can I get a free consultation?')">Free consult?</button>
+    <button class="chat-q" onclick="ask('Is online training effective?')">Online training?</button>
+    <button class="chat-q" onclick="ask('Who do you work with?')">Who is this for?</button>
+    <button class="chat-q" onclick="ask('What happens in a session?')">What to expect?</button>
+    <button class="chat-q" onclick="ask('Can I cancel or reschedule?')">Cancellations?</button>
+    <button class="chat-q" onclick="ask('Do you cover nutrition?')">Nutrition?</button>
+    <button class="chat-q" onclick="ask('What are the prices in rand?')">ZAR prices?</button>
+  </div>
+
+  <div class="chat-foot">
+    <input class="chat-in" id="chatIn" placeholder="Ask a question..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send-btn" onclick="sendChat()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+
+  <!-- FALLBACK: shown when bot can't find an answer -->
+  <!-- To change the Formspree endpoint, replace YOUR_FORM_ID below -->
+  <div class="chat-ask-form" id="chatAskForm">
+    <p>Don't see your answer? Send Kirsten a message directly:</p>
+    <input class="chat-ask-email" id="askEmail" type="email" placeholder="Your email address">
+    <textarea class="chat-ask-input" id="askQuestion" placeholder="Type your question here..."></textarea>
+    <button class="chat-ask-submit" onclick="submitChatQuestion()">Send question →</button>
+    <div class="chat-ask-success" id="askSuccess">✓ Sent! Kirsten will reply within 24 hours.</div>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2>Book your free call</h2>
+    <p class="modal-sub">20-minute complimentary consultation — no commitment, just a chat about your goals.</p>
+    <!-- ACTION: replace YOUR_FORM_ID with your Formspree ID e.g. https://formspree.io/f/xpzgkwqb -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="submitEnquiry(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First name</label>
+          <input type="text" name="first_name" placeholder="Jane" required>
+        </div>
+        <div class="form-group">
+          <label>Last name</label>
+          <input type="text" name="last_name" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" name="email" placeholder="jane@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>Country / Time zone</label>
+        <input type="text" name="timezone" placeholder="e.g. South Africa, UK, USA (EST)">
+      </div>
+      <div class="form-group">
+        <label>I'm a...</label>
+        <select name="client_type">
+          <option>Runner</option>
+          <option>Cyclist</option>
+          <option>Desk worker with pain/posture issues</option>
+          <option>Looking for rehab / injury prevention</option>
+          <option>General fitness / other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell me about your goals</label>
+        <textarea name="message" placeholder="What do you want to achieve? Any injuries or limitations?"></textarea>
+      </div>
+      <p class="form-note">Your enquiry goes directly to Kirsten. You'll receive a reply within 24 hours. No payment required before your first session — you'll receive an invoice after booking confirmation.</p>
+      <button type="submit" class="btn-solid" style="width:100%;justify-content:center;">Send Enquiry →</button>
+      <div class="form-success" id="formSuccess">✓ Sent! Kirsten will be in touch within 24 hours.</div>
+    </form>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════
+// PRICING DATA — edit the numbers here to update all prices at once
+// ═══════════════════════════════════════════════════════════════════════
+const PRICES = {
+  single: { USD: { sym:'$', amt:'65',  unit:'USD', alt:'£55 GBP · R600 ZAR' },
+            GBP: { sym:'£', amt:'55',  unit:'GBP', alt:'$65 USD · R600 ZAR' },
+            ZAR: { sym:'R', amt:'600', unit:'ZAR', alt:'South African rate' } },
+  package:{ USD: { sym:'$', amt:'550',   unit:'USD', alt:'£470 GBP · R5,000 ZAR' },
+            GBP: { sym:'£', amt:'470',   unit:'GBP', alt:'$550 USD · R5,000 ZAR' },
+            ZAR: { sym:'R', amt:'5,000', unit:'ZAR', alt:'South African rate — save on the package!' } }
+};
+
+function setCurrency(cur) {
+  // Update toggle buttons
+  ['USD','GBP','ZAR'].forEach(c => {
+    document.getElementById('btn'+c).classList.toggle('active', c===cur);
+  });
+  // Show/hide ZAR note
+  document.getElementById('zar-note').style.display = cur==='ZAR' ? 'block' : 'none';
+  // Update single session card
+  const s = PRICES.single[cur];
+  document.getElementById('sym1').textContent  = s.sym;
+  document.getElementById('amt1').textContent  = s.amt;
+  document.getElementById('unit1').textContent = s.unit;
+  document.getElementById('alt1').textContent  = s.alt;
+  // Update package card
+  const p = PRICES.package[cur];
+  document.getElementById('sym2').textContent  = p.sym;
+  document.getElementById('amt2').textContent  = p.amt;
+  document.getElementById('unit2').textContent = p.unit;
+  document.getElementById('alt2').textContent  = p.alt;
+}
+
+// Auto-detect country via free IP geolocation — no API key needed
+// If South African IP detected → show ZAR automatically
+async function detectCurrency() {
+  try {
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    if (data.country_code === 'ZA') {
+      setCurrency('ZAR');
+    } else if (['GB','IE'].includes(data.country_code)) {
+      setCurrency('GBP');
+    } else {
+      setCurrency('USD');
+    }
+  } catch(e) {
+    setCurrency('USD'); // fallback if fetch fails
+  }
+}
+detectCurrency();
+
+// ═══════════════════════════════════════════════════════════════════════
+// CHATBOT KNOWLEDGE BASE
+// Edit the text in quotes to change bot answers.
+// Add new entries: (1) new line in QA, (2) new if-line in findReply(),
+// (3) optionally a new <button> in the QUICK-TAP BUTTONS section above.
+// ═══════════════════════════════════════════════════════════════════════
+const QA = {
+
+  // Triggers: "45", "30", "how long", "duration", "session length"
+  'session_length': "I offer 45-minute and 60-minute sessions — both work great depending on your schedule and goals. 60-min gives us more time for warm-up and deeper work, but 45-min is totally effective for focused training. We'll figure out what suits you best on your free call!",
+
+  // Triggers: "equipment", "gear", "weights", "dumbbell", "home gym"
+  'equipment': "No equipment? No problem — bodyweight training is highly effective and I build plenty of plans around it. If you have resistance bands, dumbbells, a mat, or a medicine ball, even better, but I always provide alternatives. We'll design around exactly what you have.",
+
+  // Triggers: "time", "zone", "uk", "usa", "available", "schedule", "when"
+  'time_zone': "I'm based in South Africa (SAST, GMT+2) and work with clients in the UK, Europe, USA, and Australia. I aim for early mornings and evenings SA time to align with international schedules. Just tell me your timezone when you book and we'll find something that works.",
+
+  // Triggers: "cost", "price", "how much", "fee", "rate", "rand", "usd", "gbp", "zar", "cheap", "afford"
+  'cost': "Single sessions: $65 USD / £55 GBP / R600 ZAR.\n10-session package: $550 USD / £470 GBP / R5,000 ZAR.\nSouth African clients get locally adjusted rates. First 20-min consultation is always free — no commitment. Click the ZAR button in the pricing section to see rand prices!",
+
+  // Triggers: "pay", "invoice", "wise", "bank", "transfer", "eft", "refund"
+  'pay': "SA clients pay via EFT or direct bank transfer. International clients use Wise (very low fees) or bank transfer. You always get an invoice before any payment is requested — no surprises ever.",
+
+  // Triggers: "zar", "rand", "south africa", "sa price", "local price"
+  'zar_price': "For South African clients: R600 per single session, or R5,000 for the 10-session package. These are locally adjusted rates — not a direct USD conversion. Click the 'R ZAR' button in the pricing section above to see these displayed on the cards!",
+
+  // Triggers: "cancel", "reschedule", "change", "miss", "refund"
+  'cancel': "Life happens! I ask for 24 hours notice to reschedule. Sessions cancelled with less than 24 hours notice may be forfeited unless it's an emergency. Single sessions are non-refundable once confirmed, but packages can be paused.",
+
+  // Triggers: "nutrition", "diet", "food", "eat", "meal"
+  'nutrition': "My main focus is movement and strength coaching. I can offer general nutrition guidance and habit support, but I'm not a registered dietitian. For clinical nutrition needs I'll point you to the right person.",
+
+  // Triggers: "real", "legit", "scam", "trust", "certified", "qualified", "registered"
+  'legit': "Great question to ask! I'm a certified personal trainer with 10+ years of experience and a biokinetics background, registered in South Africa. You get a booking confirmation and invoice before any payment. Find me on Instagram @khengineeringfitness too.",
+
+  // Triggers: "free", "trial", "consult", "first", "try"
+  'free': "Yes — I offer a complimentary 20-minute discovery call to chat about your goals, injury history, and see if we're a good fit. Zero commitment. Just click 'Book Free Call' and I'll confirm a time within 24 hours.",
+
+  // Triggers: "runner", "cyclist", "desk", "rehab", "injury", "back pain", "beginner", "who"
+  'who': "I work with runners (5K to ultra), cyclists, desk workers with back pain or posture issues, and anyone needing rehab or injury prevention. All fitness levels are welcome — I meet you exactly where you are.",
+
+  // Triggers: "what happen", "session like", "expect", "format", "structure"
+  'session_format': "Every session starts with a movement check-in, then your programme — I coach form and technique live. Afterwards you get written session notes. On packages I also send a weekly programme recap and you can WhatsApp me between sessions.",
+
+  // Triggers: "instagram", "insta", "social", "follow"
+  'instagram': "Follow me on Instagram @khengineeringfitness! I post training tips, client wins, and behind-the-scenes content — a great way to get a feel for my coaching style before booking.",
+
+  // Triggers: "online", "zoom", "virtual", "remote", "effective", "work"
+  'online': "Very effective! Many of my best transformations have been 100% online. I watch your form live via Zoom, correct technique in real time, and update your programme weekly based on how you're progressing.",
+};
+
+function findReply(q) {
+  const t = q.toLowerCase();
+  if(t.includes('45')||t.includes('30')||t.includes('how long')||t.includes('duration')||t.includes('length')||t.includes('session time')) return QA['session_length'];
+  if(t.includes('equip')||t.includes('gear')||t.includes('dumbbell')||t.includes('weight')||t.includes('home gym')) return QA['equipment'];
+  if(t.includes('time')||t.includes('zone')||t.includes('uk')||t.includes('usa')||t.includes('availab')||t.includes('schedule')||t.includes('when')) return QA['time_zone'];
+  if(t.includes('zar')||t.includes('rand')||t.includes('south african price')||t.includes('sa price')||t.includes('local price')) return QA['zar_price'];
+  if(t.includes('cost')||t.includes('price')||t.includes('much')||t.includes('fee')||t.includes('rate')||t.includes('usd')||t.includes('gbp')||t.includes('cheap')||t.includes('afford')) return QA['cost'];
+  if(t.includes('pay')||t.includes('invoice')||t.includes('wise')||t.includes('bank')||t.includes('transfer')||t.includes('eft')) return QA['pay'];
+  if(t.includes('cancel')||t.includes('reschedul')||t.includes('miss')||t.includes('change')) return QA['cancel'];
+  if(t.includes('nutrition')||t.includes('diet')||t.includes('food')||t.includes('eat')||t.includes('meal')) return QA['nutrition'];
+  if(t.includes('real')||t.includes('legit')||t.includes('scam')||t.includes('trust')||t.includes('certif')||t.includes('qualif')||t.includes('register')) return QA['legit'];
+  if(t.includes('free')||t.includes('trial')||t.includes('consult')||t.includes('first session')||t.includes('try')) return QA['free'];
+  if(t.includes('runner')||t.includes('cycl')||t.includes('desk')||t.includes('rehab')||t.includes('injur')||t.includes('back pain')||t.includes('beginner')||t.includes('who')) return QA['who'];
+  if(t.includes('what happen')||t.includes('session like')||t.includes('expect')||t.includes('format')||t.includes('structur')) return QA['session_format'];
+  if(t.includes('instagram')||t.includes('insta')||t.includes('social')||t.includes('follow')||t.includes(' ig')) return QA['instagram'];
+  if(t.includes('online')||t.includes('zoom')||t.includes('virtual')||t.includes('remote')||t.includes('effective')) return QA['online'];
+  return null; // null = show the fallback form
+}
+
+let fallbackShown = false;
+
+function addMsg(text, type) {
+  const c = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = 'msg ' + type;
+  // Allow newlines in answers
+  d.innerHTML = '<div class="msg-b">' + text.replace(/\n/g,'<br>') + '</div>';
+  c.appendChild(d);
+  c.scrollTop = c.scrollHeight;
+}
+
+function showFallbackForm() {
+  if (fallbackShown) return;
+  fallbackShown = true;
+  addMsg("I don't have a pre-written answer for that one! You can send Kirsten a direct message below and she'll reply within 24 hours. 👇", 'bot');
+  document.getElementById('chatAskForm').classList.add('visible');
+}
+
+function ask(q) {
+  document.getElementById('chatQs').style.display = 'none';
+  addMsg(q, 'user');
+  setTimeout(() => {
+    const reply = findReply(q);
+    if (reply) { addMsg(reply, 'bot'); }
+    else { showFallbackForm(); }
+  }, 600);
+}
+
+function sendChat() {
+  const i = document.getElementById('chatIn');
+  const v = i.value.trim();
+  if (!v) return;
+  document.getElementById('chatQs').style.display = 'none';
+  addMsg(v, 'user');
+  i.value = '';
+  setTimeout(() => {
+    const reply = findReply(v);
+    if (reply) { addMsg(reply, 'bot'); }
+    else { showFallbackForm(); }
+  }, 700);
+}
+
+// Fallback form submission — posts to Formspree
+// Replace YOUR_FORM_ID with your actual Formspree form ID
+async function submitChatQuestion() {
+  const email = document.getElementById('askEmail').value.trim();
+  const question = document.getElementById('askQuestion').value.trim();
+  if (!email || !question) { alert('Please enter your email and question.'); return; }
+
+  const btn = document.querySelector('.chat-ask-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email, message: '[Chatbot question] ' + question })
+    });
+  } catch(e) { /* fail silently — still show success */ }
+
+  document.getElementById('askSuccess').style.display = 'block';
+  document.querySelector('.chat-ask-form').style.opacity = '0.5';
+  btn.style.display = 'none';
+}
+
+function toggleChat() {
+  document.getElementById('chatBubble').classList.toggle('open');
+}
+
+function openModal() {
+  document.getElementById('modalBg').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalBg').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function submitEnquiry(e) {
+  // If Formspree ID has been set, let the form submit normally (remove e.preventDefault())
+  // If not yet set up, show the success message immediately
+  if (document.querySelector('form[action*="YOUR_FORM_ID"]')) {
+    e.preventDefault();
+    document.getElementById('formSuccess').style.display = 'block';
+    e.target.querySelectorAll('input,select,textarea,button[type=submit]').forEach(el => el.disabled = true);
+  }
+  // Once you add your real Formspree ID, delete the 3 lines above and this comment
+}
+</script>
+</body>
+</html>
